@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santhana | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:300px;
+height:300px;
+background:#00f5ff33;
+border-radius:50%;
+filter:blur(120px);
+top:-100px;
+left:-100px;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:350px;
+height:350px;
+background:#8b5cf633;
+border-radius:50%;
+filter:blur(120px);
+bottom:-100px;
+right:-100px;
+z-index:-1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: rgba(10,10,10,0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #00f5ff;
+}
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:800px;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.hero span{
+color:#00f5ff;
+}
+
+.typing{
+font-size:1.3rem;
+color:#b8c1ec;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 30px;
+margin:10px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.primary{
+background:#00f5ff;
+color:black;
+}
+
+.secondary{
+border:2px solid #00f5ff;
+color:#00f5ff;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+section{
+padding:90px 10%;
+}
+
+.title{
+text-align:center;
+font-size:2.3rem;
+margin-bottom:40px;
+color:#00f5ff;
+}
+
+.glass{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:25px;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+}
+
+.skill{
+padding:12px 20px;
+background:#10172d;
+border-radius:30px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:25px;
+transition:.4s;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:10px;
+color:#00f5ff;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact p{
+margin:10px 0;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#9ca3af;
+}
+
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:2.5rem;
+}
+}
+.profile-pic{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:0 auto 20px auto;
+    border:3px solid #00f5ff;
+    box-shadow:0 0 15px rgba(0,245,255,0.5);
+}
+nav{
+flex-direction:column;
+gap:15px;
+}
+.project-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+.btn-small {
+    padding: 8px 18px;
+    background: #00f5ff;
+    color: #0a0a0a;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.btn-outline {
+    background: transparent;
+    color: #00f5ff;
+    border: 1px solid #00f5ff;
+}
+.btn-filled{
+  background:linear-gradient(135deg,#00f5ff 0%,#00d4ff 100%);
+  color:#0a0a0f;
+  border:none;
+  padding:12px 30px;
+  border-radius:50px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+  text-decoration:none;
+  display:inline-block;
+  box-shadow:0 5px 20px rgba(0,245,255,0.4);
+}
+.btn-filled:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(0,245,255,0.6);
+}    
+.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);animation:fadeIn 0.3s}
+.modal-content{background:#1a1a2e;margin:10% auto;padding:30px;border:2px solid #00f5ff;border-radius:15px;width:80%;max-width:600px;box-shadow:0 0 30px rgba(0,245,255,0.5);animation:slideDown 0.4s}
+.modal-content h2{color:#00f5ff;margin-bottom:20px}
+#typed-text{font-size:16px;line-height:1.8;color:#e0e0e0;min-height:150px}
+.close{color:#aaa;float:right;font-size:28px;font-weight:bold;cursor:pointer}
+.close:hover{color:#00f5ff}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}    
+
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">Santhana</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<img src="https://files.catbox.moe/6vkrwp.jpeg" alt="Profile Photo" class="profile-pic">    
+<h1>Hi, I'm <span>Santhana</span></h1>
+<p class="typing"></p>
+
+<button class="btn-filled" onclick="openResume()">💼 View Live Resume</button>
+<a href="santhana_resume.pdf" download class="btn-filled">📄 Download Resume</a>
+<a href="https://github.com/santhana20" class="btn-filled" target="_blank">GitHub</a>
+</div>
+</section>
+
+<section id="about" class="fade">
+<h2 class="title">About Me</h2>
+<div class="glass">
+<p>
+Aspiring Data Analyst and Web Developer with hands-on experience in Python, SQL, HTML, CSS and JavaScript.
+Passionate about creating useful applications and solving real-world problems through technology.
+</p>
+</div>
+</section>
+
+<section id="skills" class="fade">
+<h2 class="title">Skills</h2>
+<div class="skills">
+<div class="skill">Python</div>
+<div class="skill">SQL</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Data Analytics</div>
+<div class="skill">MS Excel</div>
+<div class="skill">GitHub</div>
+</div>
+</section>
+
+<section id="projects" class="fade">
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>AI Resume Analyzer</h3>
+<p>
+Analyzes resumes, extracts skills, and identifies missing skills to improve job readiness.
+</p>
+<div class="project-links">
+    <a href="https://ai-resume-analyzer-nk7sfhjizfghfpxvsr3ye8.streamlit.app/" target="_blank" class="btn-small">Live Demo</a>
+    <a href="https://github.com/santhana20/AI-Resume-Analyzer.git" target="_blank" class="btn-small btn-outline">Code</a>
+</div>
+</div>
+
+<div class="card">
+<h3>AI Interview Question Generator</h3>
+<p>
+Developed a simple AI Interview Question Generator using Python and Streamlit that generates role-based interview questions to help candidates prepare for job interviews.    
+</p>
+<div class="project-links">
+    <a href="https://wubuilxlrxr3jeiq3x493c.streamlit.app/" target="_blank" class="btn-small">Live Demo</a>
+    <a href="https://github.com/santhana20/AI-Interview-Question-Generator.git" target="_blank" class="btn-small btn-outline">Code</a>
+</div>
+</div>
+
+<div class="card">
+  <h3>Portfolio Website</h3>
+  <p>Modern responsive personal portfolio built using HTML, CSS and JavaScript</p>
+  <div class="project-links">
+    <a href="https://santhana20.github.io/Portfolio-Website/" target="_blank" class="btn-small">Live Demo</a>
+    <a href="https://github.com/santhana20/Portfolio-Website" target="_blank" class="btn-small btn-outline">Code</a>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="fade">
+<h2 class="title">Contact</h2>
+
+<div class="glass contact">
+
+<p>Let's connect and discuss opportunities.</p>
+
+<br>
+
+<a href="santhanasamikannu@gmail.com" class="btn primary">
+📧 Email Me
+</a>
+
+<a href="https://github.com/santhana20" target="_blank" class="btn secondary">
+💻 GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/santhana-s-981166317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="btn secondary">
+🔗 LinkedIn
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Santhana | All Rights Reserved
+</footer>
+
+<script>
+const text="Aspiring Data Analyst • Web Developer • Problem Solver";
+let i=0;
+
+function typeWriter(){
+if(i<text.length){
+document.querySelector(".typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeWriter,70);
+}
+}
+typeWriter();
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+});
+
+document.querySelectorAll('.fade').forEach(el=>{
+observer.observe(el);
+});
+</script>
+<!-- Resume Modal -->
+<div id="resumeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeResume()">&times;</span>
+    <h2>Santhana  - Resume</h2>
+    <div id="typed-text"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+function openResume() {
+  document.getElementById('resumeModal').style.display = 'block';
+  new Typed('#typed-text', {
+    strings: [
+      'Career Objective: Motivated B.Sc Computer Science student seeking to apply programming skills in a challenging role.^500<br><br>',
+      'Skills: HTML, CSS, JavaScript, Python, React^500<br><br>',
+      'Education: B.Sc Computer Science - Holy Cross College,Trichy^500<br><br>',
+      'Projects: Portfolio Website, Weather App, To-Do List'
+    ],
+    typeSpeed: 30,
+    showCursor: true,
+    cursorChar: '|'
+  });
+}
+
+function closeResume() {
+  document.getElementById('resumeModal').style.display = 'none';
+  document.getElementById('typed-text').innerHTML = '';
+}
+window.onclick = function(event) {
+  if (event.target == document.getElementById('resumeModal')) {
+    closeResume();
+  }
+}
+</script>    
+
+</body>
+</html>
