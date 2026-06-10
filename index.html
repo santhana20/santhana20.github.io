@@ -272,44 +272,14 @@ gap:15px;
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideDown{from{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-.launch-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 15px 35px;
-  font-size: 18px;
-  font-weight: 600;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
+#journey-text {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    max-width: 700px;
+    line-height: 1.8;
 }
-
-.launch-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
-}
-
-.launch-btn:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.rocket {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.launch-btn:hover .rocket {
-  transform: translateX(5px) rotate(-20deg);
-}
-html{
-    scroll-behavior: smooth;
-}    
-
+  
 </style>
 </head>
 
@@ -331,11 +301,13 @@ html{
 <h1>Hi, I'm <span>Santhana</span></h1>
 <p class="typing"></p>
 
-<a href="#projects" class="launch-btn">
-  Launch My Portfolio <span class="rocket">🚀</span>
-</a>
+<button onclick="startJourney()" class="btn">
+    🚀 Explore My Journey
+</button>
+
+<p id="journey-text"></p>
 <a href="santhana_resume.pdf" download class="btn-filled">📄 Download Resume</a>
-<a href="https://github.com/santhana20" class="btn-filled" target="_blank">GitHub</a>
+<a href="https://github.com/santhana20" class="btn-filled" target="_blank">💻 GitHub</a>
 </div>
 </section>
 
@@ -467,30 +439,26 @@ observer.observe(el);
 
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
-function openResume() {
-  document.getElementById('resumeModal').style.display = 'block';
-  new Typed('#typed-text', {
-    strings: [
-      'Career Objective: Motivated B.Sc Computer Science student seeking to apply programming skills in a challenging role.^500<br><br>',
-      'Skills: HTML, CSS, JavaScript, Python, React^500<br><br>',
-      'Education: B.Sc Computer Science - Holy Cross College,Trichy^500<br><br>',
-      'Projects: Portfolio Website, Weather App, To-Do List'
-    ],
-    typeSpeed: 30,
-    showCursor: true,
-    cursorChar: '|'
-  });
-}
 
-function closeResume() {
-  document.getElementById('resumeModal').style.display = 'none';
-  document.getElementById('typed-text').innerHTML = '';
-}
-window.onclick = function(event) {
-  if (event.target == document.getElementById('resumeModal')) {
-    closeResume();
-  }
-}
+function startJourney() {
+
+    const text =
+    "Every project I build reflects my passion for technology, creativity, and continuous learning. Explore my journey through skills, projects, and achievements.";
+
+    let i = 0;
+
+    document.getElementById("journey-text").innerHTML = "";
+
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("journey-text").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 40);
+        }
+    }
+
+    typeWriter();
+}    
 </script>    
 
 </body>
