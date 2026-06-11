@@ -368,41 +368,49 @@ font-size:2.5rem;
     display: none;
 }
 
- .education-container {
+#education {
+  padding: 80px 10%;
+  background: #0a0a0a;
+}
+
+.education-container {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  justify-content: center;
   align-items: center;
 }
 
 .education-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(0, 188, 212, 0.3);
-  padding: 18px 35px;
-  border-radius: 50px; /* idhu dhan pill shape */
+  border-radius: 15px;
+  padding: 40px 50px;
   text-align: center;
-  transition: 0.3s;
-  cursor: pointer;
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
 .education-card:hover {
-  background: rgba(0, 188, 212, 0.15);
   border-color: #00bcd4;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00bcd4;
+  box-shadow: 0 0 30px rgba(0, 188, 212, 0.4);
+  transform: translateY(-5px);
 }
 
 .education-card h3 {
-  margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   color: #fff;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .education-card p {
-  margin: 5px 0 0 0;
-  font-size: 0.9rem;
-  color: #aaa;
-} 
+  font-size: 1.1rem;
+  color: #ccc;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
 .internship-banner {
     margin: 40px auto;
     padding: 15px;
@@ -474,22 +482,26 @@ I'm Santhana, a B.Sc Computer Science student passionate about data analytics an
 </div>
 </section>
 
-<div class="education-container">
-  <div class="education-card">
-    <h3>B.Sc Computer Science</h3>
-    <p>Holy Cross College, Trichy | 2024 - 2027</p>
-  </div>
+<section id="education">
+  <h2 class="section-title">Education</h2>
   
-  <div class="education-card">
-    <h3>HSC</h3>
-    <p>St.Josheph's Girls Higher Secondary School, Ponmalaipatti | 2022 - 2024</p>
+  <div class="education-container">
+    <div class="education-card">
+      <h3>B.Sc Computer Science</h3>
+      <p>Holy Cross College, Trichy | 2024 - 2027</p>
+    </div>
+    
+    <div class="education-card">
+      <h3>HSC</h3>
+      <p>St.Joseph's Girls Higher Secondary School, Ponmalaipatti | 2022 - 2024</p>
+    </div>
+    
+    <div class="education-card">
+      <h3>SSLC</h3>
+      <p>St.Joseph's Girls Higher Secondary School, Ponmalaipatti | 2020 - 2022</p>
+    </div>
   </div>
-  
-  <div class="education-card">
-    <h3>SSLC</h3>
-    <p>St.Josheph's Girls Higher Secondary School, Ponmalaipatti | 2020 - 2022</p>
-  </div>
-</div>
+</section>
 </section>
 <section id="skills" class="fade">
 <h2 class="title">Skills</h2>
