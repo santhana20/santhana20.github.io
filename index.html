@@ -322,13 +322,30 @@ font-size:2.5rem;
   justify-content: center;
   align-items: center;
 }
+  
+.journey-typing {
+  font-size: 2rem;
+  font-family: monospace;
+  font-weight: bold;
 
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+  display: inline-block;
+  border-right: 3px solid black;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  animation: typing 3s steps(20) forwards, blink 0.7s infinite;
 }
 
+/* FIX: use max-width instead of width animation */
+@keyframes typing {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 20ch;
+  }
+}
 #progress-bar {
     position: fixed;
     top: 0;
